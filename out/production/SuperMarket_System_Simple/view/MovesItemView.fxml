@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="487.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MovesItemViewController">
+   <children>
+      <TableView layoutX="22.0" layoutY="33.0" prefHeight="200.0" prefWidth="691.0">
+         <columns>
+            <TableColumn prefWidth="185.0" text="Date" />
+            <TableColumn minWidth="0.0" prefWidth="162.0" text="Order" />
+            <TableColumn minWidth="0.0" prefWidth="163.0" text="Item" />
+            <TableColumn minWidth="0.0" prefWidth="180.0" text="Income" />
+         </columns>
+      </TableView>
+      <TableView layoutX="23.0" layoutY="273.0" prefHeight="200.0" prefWidth="691.0">
+         <columns>
+            <TableColumn prefWidth="177.0" text="Date" />
+            <TableColumn prefWidth="164.0" text="Order" />
+            <TableColumn prefWidth="170.0" text="Item" />
+            <TableColumn prefWidth="179.0" text="Income" />
+         </columns>
+      </TableView>
+      <Label layoutX="23.0" layoutY="6.0" text="Most Movable Item">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="23.0" layoutY="247.0" text="Least Movable Item">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

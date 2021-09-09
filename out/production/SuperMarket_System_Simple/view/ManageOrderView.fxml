@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="487.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageOrderViewController">
+   <children>
+      <TextField layoutX="160.0" layoutY="161.0" prefHeight="31.0" prefWidth="164.0" promptText="Description" />
+      <TextField layoutX="617.0" layoutY="161.0" prefHeight="31.0" prefWidth="102.0" promptText="QTY" />
+      <TextField layoutX="465.0" layoutY="161.0" prefHeight="31.0" prefWidth="142.0" promptText="Uniq Price" />
+      <TextField layoutX="332.0" layoutY="161.0" prefHeight="31.0" prefWidth="120.0" promptText="Qty On Hand" />
+      <TableView layoutX="16.0" layoutY="259.0" prefHeight="219.0" prefWidth="586.0">
+         <columns>
+            <TableColumn prefWidth="101.0" text="Item Code" />
+            <TableColumn prefWidth="143.0" text="Description" />
+            <TableColumn prefWidth="107.0" text="QTY" />
+            <TableColumn prefWidth="128.0" text="Uniq Price" />
+            <TableColumn prefWidth="106.0" text="Total" />
+         </columns>
+      </TableView>
+      <Button layoutX="606.0" layoutY="211.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" style="-fx-background-radius: 25;" text="Add Card">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="511.0" layoutY="211.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="92.0" style="-fx-background-radius: 25;" text="Clear">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="15.0" layoutY="11.0" text="Manage Order">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="9.0" layoutY="161.0" prefHeight="31.0" prefWidth="142.0" promptText="Code Item" />
+      <ComboBox layoutX="9.0" layoutY="62.0" prefHeight="31.0" prefWidth="164.0" promptText="customer ID" />
+      <TextField layoutX="184.0" layoutY="62.0" prefHeight="31.0" prefWidth="190.0" promptText="customer Name" />
+      <TextField layoutX="387.0" layoutY="62.0" prefHeight="31.0" prefWidth="190.0" promptText="customer Address" />
+      <TextField layoutX="590.0" layoutY="62.0" prefHeight="31.0" prefWidth="131.0" promptText="city" />
+      <TextField layoutX="185.0" layoutY="102.0" prefHeight="31.0" prefWidth="190.0" promptText="province" />
+      <TextField layoutX="388.0" layoutY="102.0" prefHeight="31.0" prefWidth="190.0" promptText="contact" />
+      <Button layoutX="613.0" layoutY="442.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" style="-fx-background-radius: 25;" text="Place Order">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="635.0" layoutY="277.0" prefHeight="30.0" prefWidth="60.0" text="Total">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="640.0" layoutY="319.0" prefHeight="30.0" prefWidth="39.0" />
+   </children>
+</AnchorPane>
