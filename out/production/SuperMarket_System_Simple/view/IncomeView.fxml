@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="487.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.IncomeViewController">
    <children>
-      <TableView layoutX="22.0" layoutY="33.0" prefHeight="200.0" prefWidth="691.0">
+      <TableView layoutX="22.0" layoutY="34.0" prefHeight="200.0" prefWidth="691.0">
         <columns>
           <TableColumn prefWidth="185.0" text="Date" />
           <TableColumn minWidth="0.0" prefWidth="162.0" text="Order" />
@@ -24,12 +24,12 @@
             <TableColumn prefWidth="179.0" text="Income" />
          </columns>
       </TableView>
-      <Label layoutX="23.0" layoutY="6.0" text="Daliy Income">
+      <Label layoutX="23.0" layoutY="3.0" text="Daliy Income">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="23.0" layoutY="247.0" text="Monthly Income">
+      <Label layoutX="23.0" layoutY="241.0" text="Monthly Income">
          <font>
             <Font size="18.0" />
          </font>

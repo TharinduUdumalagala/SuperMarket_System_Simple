@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="375.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ItemReportViewController">
+   <children>
+      <TableView fx:id="tblItem" layoutX="16.0" layoutY="50.0" prefHeight="311.0" prefWidth="703.0">
+         <columns>
+            <TableColumn fx:id="colItemCode" prefWidth="117.0" text="Item" />
+            <TableColumn fx:id="colDescription" prefWidth="181.0" text="Description" />
+            <TableColumn fx:id="colPackSize" prefWidth="135.0" text="Pack Size" />
+            <TableColumn fx:id="colUniqPrice" prefWidth="147.0" text="Uniq Price" />
+            <TableColumn fx:id="colQTY" prefWidth="122.0" text="QTY" />
+         </columns>
+      </TableView>
+      <Button layoutX="619.0" layoutY="10.0" mnemonicParsing="false" onAction="#refreshItem" prefHeight="31.0" prefWidth="98.0" style="-fx-background-radius: 25;" text="Refresh">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>

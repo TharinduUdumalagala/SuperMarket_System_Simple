@@ -38,4 +38,11 @@ public class AdminViewController {
         adminContext.getChildren().clear();
         adminContext.getChildren().add(load);
     }
+
+    public void onReport(ActionEvent actionEvent) throws IOException {
+        URL resource = getClass().getResource("../view/ReportView.fxml");
+        Parent load = FXMLLoader.load(resource);
+        adminContext.getChildren().clear();
+        adminContext.getChildren().add(load);
+    }
 }

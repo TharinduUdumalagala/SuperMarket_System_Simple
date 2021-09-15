@@ -8,27 +8,27 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="487.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerViewController">
+<AnchorPane fx:id="customerContext" prefHeight="487.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CustomerViewController">
    <children>
-      <TextField layoutX="30.0" layoutY="72.0" promptText="customer Id" />
-      <TextField layoutX="30.0" layoutY="123.0" promptText="city" />
-      <TextField layoutX="508.0" layoutY="123.0" promptText="contact" />
-      <TextField layoutX="274.0" layoutY="72.0" promptText="customer Name" />
-      <TextField layoutX="274.0" layoutY="123.0" promptText="province" />
-      <TextField layoutX="508.0" layoutY="72.0" promptText="customer Address" />
-      <TableView layoutX="14.0" layoutY="223.0" prefHeight="256.0" prefWidth="709.0">
+      <TextField fx:id="txtCustomerId" layoutX="30.0" layoutY="72.0" promptText="customer Id" />
+      <TextField fx:id="txtCity" layoutX="30.0" layoutY="123.0" promptText="city" />
+      <TextField fx:id="txtContact" layoutX="508.0" layoutY="123.0" promptText="contact" />
+      <TextField fx:id="txtName" layoutX="274.0" layoutY="72.0" promptText="customer Name" />
+      <TextField fx:id="txtProvince" layoutX="274.0" layoutY="123.0" promptText="province" />
+      <TextField fx:id="txtAddress" layoutX="508.0" layoutY="72.0" promptText="customer Address" />
+      <TableView fx:id="tblCustomer" layoutX="14.0" layoutY="223.0" prefHeight="256.0" prefWidth="709.0">
         <columns>
-          <TableColumn prefWidth="110.0" text="Customer Id" />
-          <TableColumn prefWidth="112.0" text="Name" />
-            <TableColumn prefWidth="134.0" text="Address" />
-            <TableColumn prefWidth="119.0" text="City" />
-            <TableColumn prefWidth="130.0" text="Province" />
-            <TableColumn prefWidth="103.0" text="Contact" />
+          <TableColumn fx:id="colCustomerId" prefWidth="110.0" text="Customer Id" />
+          <TableColumn fx:id="colName" prefWidth="112.0" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="134.0" text="Address" />
+            <TableColumn fx:id="colCity" prefWidth="119.0" text="City" />
+            <TableColumn fx:id="colProvince" prefWidth="130.0" text="Province" />
+            <TableColumn fx:id="colContact" prefWidth="103.0" text="Contact" />
         </columns>
       </TableView>
-      <Button layoutX="613.0" layoutY="178.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Save" />
-      <Button layoutX="521.0" layoutY="178.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Update" />
-      <Button layoutX="428.0" layoutY="178.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Delete" />
+      <Button layoutX="613.0" layoutY="178.0" mnemonicParsing="false" onAction="#saveCustomer" prefHeight="31.0" prefWidth="80.0" text="Save" />
+      <Button layoutX="521.0" layoutY="178.0" mnemonicParsing="false" onAction="#updateCustomer" prefHeight="31.0" prefWidth="80.0" text="Update" />
+      <Button layoutX="428.0" layoutY="178.0" mnemonicParsing="false" onAction="#deleteCustomer" prefHeight="31.0" prefWidth="80.0" text="Delete" />
       <Label layoutX="30.0" layoutY="13.0" text="Manage Customer">
          <font>
             <Font name="System Bold" size="25.0" />

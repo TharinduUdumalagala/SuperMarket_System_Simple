@@ -29,15 +29,20 @@
                   <Font size="25.0" />
                </font>
             </Label>
-            <Label layoutX="21.0" layoutY="314.0" text="Manage Items" textFill="WHITE">
+            <Label layoutX="21.0" layoutY="341.0" text="Manage Items" textFill="WHITE">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
-            <Button layoutX="21.0" layoutY="363.0" mnemonicParsing="false" onAction="#onManageItems" prefHeight="31.0" prefWidth="158.0" style="-fx-background-radius: 25;" text="Manage All Items">
+            <Button layoutX="21.0" layoutY="390.0" mnemonicParsing="false" onAction="#onManageItems" prefHeight="31.0" prefWidth="158.0" style="-fx-background-radius: 25;" text="Manage All Items">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
+            <Button layoutX="21.0" layoutY="269.0" mnemonicParsing="false" onAction="#onReport" prefHeight="31.0" prefWidth="158.0" style="-fx-background-radius: 25;" text="Report">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children></AnchorPane>
       <AnchorPane fx:id="adminContext" layoutX="200.0" layoutY="2.0" prefHeight="487.0" prefWidth="735.0">
          <children>

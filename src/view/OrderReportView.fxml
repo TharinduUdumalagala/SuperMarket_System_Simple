@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="375.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderReportViewController">
+   <children>
+      <TableView fx:id="tblCustomer" layoutX="12.0" layoutY="13.0" prefHeight="353.0" prefWidth="709.0">
+         <columns>
+            <TableColumn fx:id="colOrderId" prefWidth="145.0" text="Order Id" />
+            <TableColumn fx:id="colCustomerId" prefWidth="147.0" text="Customer Id" />
+            <TableColumn fx:id="colOrderDate" prefWidth="151.0" text="Order Date" />
+            <TableColumn fx:id="colOrderTime" prefWidth="130.0" text="Order Time" />
+            <TableColumn fx:id="colCost" prefWidth="135.0" text="Cost" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

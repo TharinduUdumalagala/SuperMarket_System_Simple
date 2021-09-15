@@ -12,10 +12,10 @@
 
 <AnchorPane prefHeight="487.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageOrderViewController">
    <children>
-      <TextField layoutX="160.0" layoutY="161.0" prefHeight="31.0" prefWidth="164.0" promptText="Description" />
-      <TextField layoutX="617.0" layoutY="161.0" prefHeight="31.0" prefWidth="102.0" promptText="QTY" />
-      <TextField layoutX="465.0" layoutY="161.0" prefHeight="31.0" prefWidth="142.0" promptText="Uniq Price" />
-      <TextField layoutX="332.0" layoutY="161.0" prefHeight="31.0" prefWidth="120.0" promptText="Qty On Hand" />
+      <TextField layoutX="160.0" layoutY="171.0" prefHeight="31.0" prefWidth="164.0" promptText="Description" />
+      <TextField layoutX="617.0" layoutY="171.0" prefHeight="31.0" prefWidth="102.0" promptText="QTY" />
+      <TextField layoutX="465.0" layoutY="171.0" prefHeight="31.0" prefWidth="142.0" promptText="Uniq Price" />
+      <TextField layoutX="332.0" layoutY="171.0" prefHeight="31.0" prefWidth="120.0" promptText="Qty On Hand" />
       <TableView layoutX="16.0" layoutY="259.0" prefHeight="219.0" prefWidth="586.0">
          <columns>
             <TableColumn prefWidth="101.0" text="Item Code" />
@@ -40,13 +40,13 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <ComboBox layoutX="9.0" layoutY="161.0" prefHeight="31.0" prefWidth="142.0" promptText="Code Item" />
-      <ComboBox layoutX="9.0" layoutY="62.0" prefHeight="31.0" prefWidth="164.0" promptText="customer ID" />
-      <TextField layoutX="184.0" layoutY="62.0" prefHeight="31.0" prefWidth="190.0" promptText="customer Name" />
-      <TextField layoutX="387.0" layoutY="62.0" prefHeight="31.0" prefWidth="190.0" promptText="customer Address" />
-      <TextField layoutX="590.0" layoutY="62.0" prefHeight="31.0" prefWidth="131.0" promptText="city" />
-      <TextField layoutX="185.0" layoutY="102.0" prefHeight="31.0" prefWidth="190.0" promptText="province" />
-      <TextField layoutX="388.0" layoutY="102.0" prefHeight="31.0" prefWidth="190.0" promptText="contact" />
+      <ComboBox layoutX="9.0" layoutY="171.0" prefHeight="31.0" prefWidth="142.0" promptText="Code Item" />
+      <ComboBox layoutX="159.0" layoutY="72.0" prefHeight="31.0" prefWidth="164.0" promptText="customer ID" />
+      <TextField layoutX="332.0" layoutY="72.0" prefHeight="31.0" prefWidth="190.0" promptText="customer Name" />
+      <TextField layoutX="533.0" layoutY="72.0" prefHeight="31.0" prefWidth="190.0" promptText="customer Address" />
+      <TextField layoutX="9.0" layoutY="112.0" prefHeight="31.0" prefWidth="164.0" promptText="city" />
+      <TextField layoutX="185.0" layoutY="112.0" prefHeight="31.0" prefWidth="190.0" promptText="province" />
+      <TextField layoutX="388.0" layoutY="112.0" prefHeight="31.0" prefWidth="190.0" promptText="contact" />
       <Button layoutX="613.0" layoutY="442.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" style="-fx-background-radius: 25;" text="Place Order">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -58,5 +58,6 @@
          </font>
       </Label>
       <Label layoutX="640.0" layoutY="319.0" prefHeight="30.0" prefWidth="39.0" />
+      <TextField layoutX="9.0" layoutY="72.0" prefHeight="31.0" prefWidth="142.0" promptText="Order ID" />
    </children>
 </AnchorPane>
