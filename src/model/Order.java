@@ -1,21 +1,25 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Order {
     private String orderId;
     private String customerId;
     private String orderDate;
     private String orderTime;
     private double cost;
+    ArrayList<ItemDetails> items;
 
     public Order() {
     }
 
-    public Order(String orderId, String customerId, String orderDate, String orderTime, double cost) {
+    public Order(String orderId, String customerId, String orderDate, String orderTime, double cost, ArrayList<ItemDetails> items) {
         this.orderId = orderId;
         this.customerId = customerId;
         this.orderDate = orderDate;
         this.orderTime = orderTime;
         this.cost = cost;
+        this.items = items;
     }
 
     public String getOrderId() {
@@ -58,6 +62,14 @@ public class Order {
         this.cost = cost;
     }
 
+    public ArrayList<ItemDetails> getItems() {
+        return items;
+    }
+
+    public void setItems(ArrayList<ItemDetails> items) {
+        this.items = items;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
@@ -66,6 +78,7 @@ public class Order {
                 ", orderDate='" + orderDate + '\'' +
                 ", orderTime='" + orderTime + '\'' +
                 ", cost=" + cost +
+                ", items=" + items +
                 '}';
     }
 }

@@ -12,25 +12,25 @@
 
 <AnchorPane prefHeight="487.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageOrderViewController">
    <children>
-      <TextField layoutX="160.0" layoutY="171.0" prefHeight="31.0" prefWidth="164.0" promptText="Description" />
-      <TextField layoutX="617.0" layoutY="171.0" prefHeight="31.0" prefWidth="102.0" promptText="QTY" />
-      <TextField layoutX="465.0" layoutY="171.0" prefHeight="31.0" prefWidth="142.0" promptText="Uniq Price" />
-      <TextField layoutX="332.0" layoutY="171.0" prefHeight="31.0" prefWidth="120.0" promptText="Qty On Hand" />
-      <TableView layoutX="16.0" layoutY="259.0" prefHeight="219.0" prefWidth="586.0">
+      <TextField fx:id="txtDescription" layoutX="160.0" layoutY="171.0" prefHeight="31.0" prefWidth="164.0" promptText="Description" />
+      <TextField fx:id="txtQTY" layoutX="617.0" layoutY="171.0" prefHeight="31.0" prefWidth="102.0" promptText="QTY" />
+      <TextField fx:id="txtUniqPrice" layoutX="465.0" layoutY="171.0" prefHeight="31.0" prefWidth="142.0" promptText="Uniq Price" />
+      <TextField fx:id="txtOtyOnHand" layoutX="332.0" layoutY="171.0" prefHeight="31.0" prefWidth="120.0" promptText="Qty On Hand" />
+      <TableView fx:id="tblChart" layoutX="16.0" layoutY="259.0" prefHeight="219.0" prefWidth="586.0">
          <columns>
-            <TableColumn prefWidth="101.0" text="Item Code" />
-            <TableColumn prefWidth="143.0" text="Description" />
-            <TableColumn prefWidth="107.0" text="QTY" />
-            <TableColumn prefWidth="128.0" text="Uniq Price" />
-            <TableColumn prefWidth="106.0" text="Total" />
+            <TableColumn fx:id="colItemCode" prefWidth="101.0" text="Item Code" />
+            <TableColumn fx:id="colDescription" prefWidth="143.0" text="Description" />
+            <TableColumn fx:id="colQTY" prefWidth="107.0" text="QTY" />
+            <TableColumn fx:id="colUniqPrice" prefWidth="128.0" text="Uniq Price" />
+            <TableColumn fx:id="cilTotal" prefWidth="106.0" text="Total" />
          </columns>
       </TableView>
-      <Button layoutX="606.0" layoutY="211.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" style="-fx-background-radius: 25;" text="Add Card">
+      <Button layoutX="606.0" layoutY="211.0" mnemonicParsing="false" onAction="#addCard" prefHeight="31.0" prefWidth="113.0" style="-fx-background-radius: 25;" text="Add Card">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="511.0" layoutY="211.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="92.0" style="-fx-background-radius: 25;" text="Clear">
+      <Button layoutX="511.0" layoutY="211.0" mnemonicParsing="false" onAction="#clear" prefHeight="31.0" prefWidth="92.0" style="-fx-background-radius: 25;" text="Clear">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -40,14 +40,14 @@
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <ComboBox layoutX="9.0" layoutY="171.0" prefHeight="31.0" prefWidth="142.0" promptText="Code Item" />
-      <ComboBox layoutX="159.0" layoutY="72.0" prefHeight="31.0" prefWidth="164.0" promptText="customer ID" />
-      <TextField layoutX="332.0" layoutY="72.0" prefHeight="31.0" prefWidth="190.0" promptText="customer Name" />
-      <TextField layoutX="533.0" layoutY="72.0" prefHeight="31.0" prefWidth="190.0" promptText="customer Address" />
-      <TextField layoutX="9.0" layoutY="112.0" prefHeight="31.0" prefWidth="164.0" promptText="city" />
-      <TextField layoutX="185.0" layoutY="112.0" prefHeight="31.0" prefWidth="190.0" promptText="province" />
-      <TextField layoutX="388.0" layoutY="112.0" prefHeight="31.0" prefWidth="190.0" promptText="contact" />
-      <Button layoutX="613.0" layoutY="442.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="113.0" style="-fx-background-radius: 25;" text="Place Order">
+      <ComboBox fx:id="cmdItemCode" layoutX="9.0" layoutY="171.0" prefHeight="31.0" prefWidth="142.0" promptText="Code Item" />
+      <ComboBox fx:id="cmdCustomerId" layoutX="159.0" layoutY="72.0" prefHeight="31.0" prefWidth="164.0" promptText="customer ID" />
+      <TextField fx:id="txtCustomerName" layoutX="332.0" layoutY="72.0" prefHeight="31.0" prefWidth="190.0" promptText="customer Name" />
+      <TextField fx:id="txtCustomerAddress" layoutX="533.0" layoutY="72.0" prefHeight="31.0" prefWidth="190.0" promptText="customer Address" />
+      <TextField fx:id="txtCity" layoutX="9.0" layoutY="112.0" prefHeight="31.0" prefWidth="164.0" promptText="city" />
+      <TextField fx:id="txtProvince" layoutX="185.0" layoutY="112.0" prefHeight="31.0" prefWidth="190.0" promptText="province" />
+      <TextField fx:id="txtContact" layoutX="388.0" layoutY="112.0" prefHeight="31.0" prefWidth="190.0" promptText="contact" />
+      <Button layoutX="613.0" layoutY="442.0" mnemonicParsing="false" onAction="#placeOrder" prefHeight="31.0" prefWidth="113.0" style="-fx-background-radius: 25;" text="Place Order">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -57,7 +57,9 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="640.0" layoutY="319.0" prefHeight="30.0" prefWidth="39.0" />
-      <TextField layoutX="9.0" layoutY="72.0" prefHeight="31.0" prefWidth="142.0" promptText="Order ID" />
+      <Label fx:id="txtTotal" layoutX="640.0" layoutY="319.0" prefHeight="30.0" prefWidth="39.0" />
+      <TextField fx:id="txtOrderId" layoutX="9.0" layoutY="72.0" prefHeight="31.0" prefWidth="142.0" promptText="Order ID" />
+      <Label fx:id="lblTime" layoutX="629.0" layoutY="19.0" prefHeight="21.0" prefWidth="92.0" text="Label" />
+      <Label fx:id="lblDate" layoutX="493.0" layoutY="19.0" prefHeight="21.0" prefWidth="113.0" text="Label" />
    </children>
 </AnchorPane>
