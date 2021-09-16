@@ -3,16 +3,22 @@ package controller;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Duration;
 import model.Customer;
 import model.Item;
+import model.ItemDetails;
+import model.Order;
+import view.tm.ChartTM;
 
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -155,13 +161,65 @@ public class ManageOrderViewController {
     }
 
 
+    ObservableList<ChartTM> observableList = FXCollections.observableArrayList();
+
     public void addCard(ActionEvent actionEvent) {
+
     }
 
     public void clear(ActionEvent actionEvent) {
+        if (cartSelectRowForRemove==-1){
+            new Alert(Alert.AlertType.WARNING,"Please Select a row").show();
+        }else {
+            observableList.remove(cartSelectRowForRemove);
+            calculateCost();
+            tblChart.refresh();
+        }
     }
 
-    public void placeOrder(ActionEvent actionEvent) {
+    private void calculateCost() {
+        double total=0;
+        for (ChartTM chartTM:observableList){
+            total+=chartTM.getTotal();
+        }
+        txtTotal.setText(total+"/=");
+    }
 
+    public void placeOrder(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        ArrayList<ItemDetails> itemDetails = new ArrayList<>();
+        double total = 0;
+        for (ChartTM chartTM:observableList){
+            total+=chartTM.getTotal();
+            itemDetails.add(new ItemDetails(
+                    chartTM.getCode(),
+                    chartTM.getUnitPrice(),
+                    chartTM.getQty()));
+        }
+
+        Order order = new Order(
+                txtOrderId.getText(),
+                cmdCustomerId.getValue(),
+                lblDate.getText(),
+                lblTime.getText(),
+                total,
+                itemDetails);
+
+        if (new OrderController().placeOrder(order)){
+            new Alert(Alert.AlertType.CONFIRMATION,"Success Order").show();
+
+            txtCustomerName.clear();
+            txtCustomerAddress.clear();
+            txtCity.clear();
+            txtProvince.clear();
+            txtContact.clear();
+            txtDescription.clear();
+            txtOtyOnHand.clear();
+            txtUniqPrice.clear();
+            txtQTY.clear();
+
+            setOrderId();
+        }else {
+            new Alert(Alert.AlertType.WARNING,"Try Again").show();
+        }
     }
 }
