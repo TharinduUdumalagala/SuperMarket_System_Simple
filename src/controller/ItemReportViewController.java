@@ -40,6 +40,7 @@ public class ItemReportViewController {
                                 e.getUnitPrice(),
                                 e.getQtyOnHand()));
             });
+            tblItem.setItems(observableList);
         }catch (Exception e){
 
         }

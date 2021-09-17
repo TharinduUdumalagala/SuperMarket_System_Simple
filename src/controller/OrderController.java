@@ -15,7 +15,7 @@ public class OrderController {
 
     public String getOrderId() throws SQLException, ClassNotFoundException {
         ResultSet rst = DbConnection.getInstance().getConnection().prepareStatement(
-                "SELECT orderId FROM 'Order' ORDER BY orderId DESC LIMIT 1").executeQuery();
+                "SELECT order_id FROM orders ORDER BY order_id DESC LIMIT 1").executeQuery();
         if (rst.next()){
             int tempId = Integer.parseInt(rst.getString(1).split("-")[1]);
             tempId=tempId+1;
@@ -38,7 +38,7 @@ public class OrderController {
             connection =DbConnection.getInstance().getConnection();
             connection.setAutoCommit(false);
             PreparedStatement stm = connection.prepareStatement(
-                    "INSERT INTO 'Order' VALUES (?,?,?,?,?)");
+                    "INSERT INTO orders VALUES (?,?,?,?,?)");
 
             stm.setObject(1,order.getOrderId());
             stm.setObject(2,order.getCustomerId());
@@ -78,7 +78,7 @@ public class OrderController {
     private boolean saveOrderDetail(String orderId, ArrayList<ItemDetails> items) throws SQLException, ClassNotFoundException {
         for (ItemDetails temp : items){
             PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO 'Order Detail' VALUES (?,?,?,?,?)");
+                    "INSERT INTO order_detail VALUES (?,?,?,?,?)");
             stm.setObject(1,temp.getItemCode());
             stm.setObject(2,orderId);
             stm.setObject(3,temp.getQtyForSell());
@@ -99,7 +99,7 @@ public class OrderController {
 
     private boolean updateQTY(String itemCode, int qtyForSell) throws SQLException, ClassNotFoundException {
         PreparedStatement stm =DbConnection.getInstance().getConnection().prepareStatement(
-                "UPDATE ITEM SET qtyOnHand=(qtyOnHand-" +qtyForSell+") WHERE ItemCode='"+itemCode+"'");
+                "UPDATE item SET qtyOnHand=(qtyOnHand-" +qtyForSell+") WHERE ItemCode='"+itemCode+"'");
 
         return stm.executeUpdate()>0;
     }
@@ -107,7 +107,7 @@ public class OrderController {
 
     public static ArrayList<OrderTM> getAllOrder() throws SQLException, ClassNotFoundException {
         PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement(
-                "SELECT * FROM `Order`");
+                "SELECT * FROM orders");
         ResultSet rst = stm.executeQuery();
         ArrayList<OrderTM> list = new ArrayList<>();
 

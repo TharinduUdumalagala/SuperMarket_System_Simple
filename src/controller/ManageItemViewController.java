@@ -39,7 +39,7 @@ public class ManageItemViewController {
             colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
             colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
             colPackSize.setCellValueFactory(new PropertyValueFactory<>("packSize"));
-            colUniqPrice.setCellValueFactory(new PropertyValueFactory<>("uniqPrice"));
+            colUniqPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
             colQTY.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
 
             setItemsTable(new ItemController().getAllItem());

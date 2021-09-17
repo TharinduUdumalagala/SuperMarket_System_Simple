@@ -9,33 +9,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="487.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageItemViewController">
+<AnchorPane fx:id="itemContext" prefHeight="487.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageItemViewController">
    <children>
-      <TextField layoutX="66.0" layoutY="64.0" promptText="Item Code" />
-      <TextField layoutX="269.0" layoutY="64.0" promptText="Description" />
-      <TextField layoutX="469.0" layoutY="64.0" promptText="Pack Size" />
-      <TextField layoutX="66.0" layoutY="115.0" promptText="Uniq Price" />
-      <TextField layoutX="269.0" layoutY="114.0" promptText="QTY" />
-      <TableView layoutX="15.0" layoutY="214.0" prefHeight="265.0" prefWidth="703.0">
+      <TextField fx:id="txtItemCode" layoutX="66.0" layoutY="64.0" promptText="Item Code" />
+      <TextField fx:id="txtDescription" layoutX="269.0" layoutY="64.0" promptText="Description" />
+      <TextField fx:id="txtPackSize" layoutX="469.0" layoutY="64.0" promptText="Pack Size" />
+      <TextField fx:id="txtUniqPrice" layoutX="66.0" layoutY="115.0" promptText="Uniq Price" />
+      <TextField fx:id="txtQTY" layoutX="269.0" layoutY="114.0" promptText="QTY" />
+      <TableView fx:id="tblItem" layoutX="15.0" layoutY="214.0" prefHeight="265.0" prefWidth="703.0">
         <columns>
-          <TableColumn prefWidth="117.0" text="Item" />
-          <TableColumn prefWidth="181.0" text="Description" />
-            <TableColumn prefWidth="135.0" text="Pack Size" />
-            <TableColumn prefWidth="147.0" text="Uniq Price" />
-            <TableColumn prefWidth="122.0" text="QTY" />
+          <TableColumn fx:id="colItemCode" prefWidth="117.0" text="Item" />
+          <TableColumn fx:id="colDescription" prefWidth="181.0" text="Description" />
+            <TableColumn fx:id="colPackSize" prefWidth="135.0" text="Pack Size" />
+            <TableColumn fx:id="colUniqPrice" prefWidth="147.0" text="Uniq Price" />
+            <TableColumn fx:id="colQTY" prefWidth="122.0" text="QTY" />
         </columns>
       </TableView>
-      <Button layoutX="564.0" layoutY="174.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="92.0" style="-fx-background-radius: 25;" text="Add ">
+      <Button layoutX="564.0" layoutY="174.0" mnemonicParsing="false" onAction="#saveItem" prefHeight="31.0" prefWidth="92.0" style="-fx-background-radius: 25;" text="Add ">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="463.0" layoutY="174.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="92.0" style="-fx-background-radius: 25;" text="Update">
+      <Button layoutX="463.0" layoutY="174.0" mnemonicParsing="false" onAction="#updateItem" prefHeight="31.0" prefWidth="92.0" style="-fx-background-radius: 25;" text="Update">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="363.0" layoutY="174.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="92.0" style="-fx-background-radius: 25;" text="Delete">
+      <Button layoutX="363.0" layoutY="174.0" mnemonicParsing="false" onAction="#deleteItem" prefHeight="31.0" prefWidth="92.0" style="-fx-background-radius: 25;" text="Delete">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

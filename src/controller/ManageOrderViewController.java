@@ -52,7 +52,7 @@ public class ManageOrderViewController {
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("code"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colQTY.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        colUniqPrice.setCellValueFactory(new PropertyValueFactory<>("uniqPrice"));
+        colUniqPrice.setCellValueFactory(new PropertyValueFactory<>("uniPrice"));
         cilTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
         loadDateAndTime();
@@ -118,7 +118,8 @@ public class ManageOrderViewController {
 
     private void setOrderId() {
         try {
-            txtOrderId.setText(new OrderController().getOrderId());
+            String orderId = new OrderController().getOrderId();
+            txtOrderId.setText(orderId);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
