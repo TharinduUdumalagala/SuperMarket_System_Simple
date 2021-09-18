@@ -5,12 +5,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import model.Customer;
 import model.Item;
 import view.tm.ItemTM;
 
@@ -18,6 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ManageItemViewController {
     public TextField txtItemCode;
@@ -79,11 +78,7 @@ public class ManageItemViewController {
         txtQTY.clear();
 
         if (new ItemController().saveItem(item)){
-            new Alert(Alert.AlertType.CONFIRMATION, "Item Saved...").show();
-            URL resource = getClass().getResource("../view/ManageItemView.fxml");
-            Parent load = FXMLLoader.load(resource);
-            itemContext.getChildren().clear();
-            itemContext.getChildren().add(load);
+            setItemsTable(new ItemController().getAllItem());
         }else {
             new Alert(Alert.AlertType.WARNING, "Try Again..").show();
         }
@@ -97,26 +92,60 @@ public class ManageItemViewController {
                 Double.parseDouble(txtUniqPrice.getText()),
                 txtQTY.getText());
 
+
         if (new ItemController().updateItem(item)){
-            new Alert(Alert.AlertType.CONFIRMATION, "Item Update...").show();
-            URL resource = getClass().getResource("../view/ManageItemView.fxml");
-            Parent load = FXMLLoader.load(resource);
-            itemContext.getChildren().clear();
-            itemContext.getChildren().add(load);
+            new Alert(Alert.AlertType.CONFIRMATION,"Updated..").show();
+            clear();
+            setItemsTable(new ItemController().getAllItem());
         }else {
-            new Alert(Alert.AlertType.WARNING, "Try Again..").show();
+            new Alert(Alert.AlertType.WARNING,"Not Update Customer...").show();
         }
     }
 
+    private void clear() {
+        txtItemCode.clear();
+        txtQTY.clear();
+        txtPackSize.clear();
+        txtDescription.clear();
+        txtUniqPrice.clear();
+    }
+
     public void deleteItem(ActionEvent actionEvent) throws SQLException, ClassNotFoundException, IOException {
-        if (new ItemController().deleteItem(txtItemCode.getText())){
-            new Alert(Alert.AlertType.CONFIRMATION, "Item Deleted...").show();
-            URL resource = getClass().getResource("../view/ManageItemView.fxml");
-            Parent load = FXMLLoader.load(resource);
-            itemContext.getChildren().clear();
-            itemContext.getChildren().add(load);
+        ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
+        ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+        Alert alert = new Alert(Alert.AlertType.WARNING,"Are you suer you want to Delete?",yes,no);
+        alert.setTitle("Confirmation alert");
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.orElse(no)==yes){
+            if(new ItemController().deleteItem(txtItemCode.getText())){
+                new Alert(Alert.AlertType.INFORMATION,"Deleted").show();
+                clear();
+                setItemsTable(new ItemController().getAllItem());
+            }
         }else {
-            new Alert(Alert.AlertType.WARNING, "Try Again..").show();
+            new Alert(Alert.AlertType.ERROR,"Try Again").show();
+            clear();
         }
+    }
+
+    public void searchItemOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        String itemCode = txtItemCode.getText();
+        Item item = new ItemController().getItem(itemCode);
+        if(itemCode == null){
+            new Alert(Alert.AlertType.WARNING,"Empty Result Set").show();
+        }else {
+            setData(item);
+        }
+    }
+
+    void setData(Item v) {
+        txtItemCode.setText(v.getItemCode());
+        txtDescription.setText(v.getDescription());
+        txtPackSize.setText(v.getPackSize());
+        txtQTY.setText(v.getQtyOnHand());
+        txtUniqPrice.setText(String.valueOf(v.getUnitPrice()));
+
+
     }
 }

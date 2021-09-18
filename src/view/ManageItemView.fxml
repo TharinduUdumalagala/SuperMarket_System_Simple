@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="itemContext" prefHeight="487.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageItemViewController">
    <children>
-      <TextField fx:id="txtItemCode" layoutX="66.0" layoutY="64.0" promptText="Item Code" />
+      <TextField fx:id="txtItemCode" layoutX="66.0" layoutY="64.0" onAction="#searchItemOnAction" promptText="Item Code" />
       <TextField fx:id="txtDescription" layoutX="269.0" layoutY="64.0" promptText="Description" />
       <TextField fx:id="txtPackSize" layoutX="469.0" layoutY="64.0" promptText="Pack Size" />
       <TextField fx:id="txtUniqPrice" layoutX="66.0" layoutY="115.0" promptText="Uniq Price" />

@@ -55,6 +55,8 @@ public class ManageOrderViewController {
         colUniqPrice.setCellValueFactory(new PropertyValueFactory<>("uniPrice"));
         cilTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
 
+
+
         loadDateAndTime();
         setOrderId();
 

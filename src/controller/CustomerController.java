@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerController implements CustomerService{
+public class CustomerController{
 
     public List<String> getCustomerIds() throws SQLException, ClassNotFoundException {
         ResultSet rst = DbConnection.getInstance().getConnection().prepareStatement(
@@ -26,7 +26,7 @@ public class CustomerController implements CustomerService{
     }
 
 
-    @Override
+
     public boolean saveCustomer(Customer c) throws SQLException, ClassNotFoundException {
         Connection connection = DbConnection.getInstance().getConnection();
         String query = "INSERT INTO Customer VALUES(?,?,?,?,?,?)";
@@ -41,7 +41,7 @@ public class CustomerController implements CustomerService{
         return stm.executeUpdate()>0;
     }
 
-    @Override
+
     public Customer getCustomer(String id) throws SQLException, ClassNotFoundException {
         PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement(
                 "SELECT * FROM Customer WHERE CustID=?");
@@ -62,7 +62,6 @@ public class CustomerController implements CustomerService{
         }
     }
 
-    @Override
     public boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException {
         if (DbConnection.getInstance().getConnection().prepareStatement(
                 "DELETE FROM Customer WHERE CustID = '"+id+"'").executeUpdate()>0){
@@ -72,7 +71,7 @@ public class CustomerController implements CustomerService{
         }
     }
 
-    @Override
+
     public boolean updateCustomer(Customer c) throws SQLException, ClassNotFoundException {
         PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement(
                 "UPDATE Customer SET CustName=?,CustAddress=?,City=?,Province=?,Contact=? WHERE CustID=?");
@@ -86,7 +85,7 @@ public class CustomerController implements CustomerService{
         return stm.executeUpdate()>0;
     }
 
-    @Override
+
     public ArrayList<Customer> getAllCustomers() throws SQLException, ClassNotFoundException {
         PreparedStatement stm = DbConnection.getInstance().getConnection().prepareStatement(
                 "SELECT * FROM Customer");
